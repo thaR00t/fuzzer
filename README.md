@@ -4,6 +4,8 @@ This is a very simple web directory fuzzer, if you have any issues or advice to 
 
 --------------------------------------------------------------NOTE-------------------------------------------------------------
 
+I USE THE WORDLIST IN THE GITHUB REPOSITORY BUT I RECOMMEND YOU TU USE ANOTHER WORDLIST.
+
 I WAS INSPIRE WATCHING THIS VERY COOL VIDEO! https://www.youtube.com/watch?v=WzpkStLk8vw AND THIS IS THE REPOSITOY OF TheDarkHorseUprising https://github.com/TheDarkHorseUprising/dirnum
 
 
