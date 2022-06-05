@@ -24,7 +24,7 @@ args = parser.parse_args()
 
 #Wrote by shortcu7 aka thaR00t
 print('''
-
+Usage a -h to display help interface
 ============================================
 
  SIMPLE WEB DIRECTORY FUZZER, HOPE YOU ENJOY 
