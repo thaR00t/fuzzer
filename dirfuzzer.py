@@ -1,4 +1,4 @@
-
+#import libs
 import requests
 import argparse
 import textwrap
@@ -6,7 +6,7 @@ import textwrap
 
 
 
-
+# Creating an interface
 parser = argparse.ArgumentParser(description="Welcome this is a simple web fuzzer enjoy fuzzing!",
 formatter_class = argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''EXAMPLE:
@@ -37,24 +37,26 @@ Ctrl ^C to interrupt the script
  status code:        url:
 ''')
 
+#Creating var
 url = args.url
 wlist = args.wordlist
 out = args.output
 
-wlistlines = open(wlist, 'r').readlines()
+#Analyze the wordlist
+wordlistline = open(wlist, 'r').readlines()
 
 try:
-    for i in range(0,len(wlistlines)):
-        enum=wlistlines[i].replace("\n",'')
-        r = requests.get(url+"/"+enum)
-        if r.status_code != 404:
-            output = ("    "+str(r.status_code)+"                 "+url+'/'+enum)
-            print(output)
+    for i in range(0,len(wordlistline)):      # For loop
+        enumeration=wordlistline[i].replace("\n",'')    #check the line then go on the next 
+        r = requests.get(url+"/"+enumeration)           #send a request
+        if r.status_code != 404:                        #if the request is not 404 it's correct!
+            output = ("    "+str(r.status_code)+"                 "+url+'/'+enumeration)                #r.status_code record the status of the server which is 404 is no available
+            print(output)                                                                               #if is 200 is availabl, then print the output
 except KeyboardInterrupt:
         print("Script interrupt by user")
         
 
-outfile = (str(r.status_code)+" | "+ url+'/'+enum )
+outfile = (str(r.status_code)+" | "+ url+'/'+enumeration )
 f= open(out,'a')
 f.write(outfile+"\n")
 f.close()
