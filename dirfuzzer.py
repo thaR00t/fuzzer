@@ -27,7 +27,7 @@ print('''
 Usage a -h to display help interface
 ============================================
 
- SIMPLE WEB DIRECTORY FUZZER, HOPE YOU ENJOY 
+SIMPLE WEB DIRECTORY FUZZER, HOPE YOU ENJOY 
 WITH THIS SIMPLE SCRIPT,
 REPORT ANY ISSUES AND ANY ADVICE.
 
@@ -50,7 +50,7 @@ try:
         enumeration=wordlistline[i].replace("\n",'')    #check the line then go on the next 
         r = requests.get(url+"/"+enumeration)           #send a request
         if r.status_code != 404:                        #if the request is not 404 it's correct!
-            output = ("    "+str(r.status_code)+"                 "+url+'/'+enumeration)                #r.status_code record the status of the server which is 404 is no available
+            output = ("    "+str(r.status_code)+"                "+url+'/'+enumeration)                #r.status_code record the status of the server which is 404 is no available
             print(output)                                                                               #if is 200 is availabl, then print the output
 except KeyboardInterrupt:
         print("Script interrupt by user")
