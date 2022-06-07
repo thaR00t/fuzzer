@@ -13,7 +13,7 @@ epilog=textwrap.dedent('''EXAMPLE:
 
 
 dirfuzzer.py -u http://example.com/ -w <wordlist> # Simple fuzzin
-dirfuzzer.py -u http://example.com/ -w <wordlist> -x .js, .txt, .php
+dirfuzzer.py -u http://example.com/ -w <wordlist> -x .txt       #for now you can use only one extension
 dirfuzzer.py -u http://example.com/ -w <wordlist> -o output.txt # Save the fuzzing's output 
 '''))
 
