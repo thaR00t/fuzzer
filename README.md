@@ -10,7 +10,7 @@ I WAS INSPIRE WATCHING THIS VERY COOL VIDEO! https://www.youtube.com/watch?v=Wzp
 
 
 
-----------------------------------------------------------INSTALLATION-------------------------------------------------------
+----------------------------------------------------------INSTALLATION------------------------------------------------------
 
 ONLY YOU NEED TO USE THIS FUZZER IS REQUEST LIBRARY 
 
@@ -22,3 +22,7 @@ ONLY YOU NEED TO USE THIS FUZZER IS REQUEST LIBRARY
 - u ==> Insert url
 - w ==> Use wordlist
 - o ==> save the output in .txt extension 
+
+-----------------------------------------------------------ATTENTION----------------------------------------------------------
+
+ATTENTION THIS PROGRAM IS WORKING IN PROGRESS, SO STAY CAREFULL ABOUT UPDATES!!
