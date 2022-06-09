@@ -1,8 +1,8 @@
 #import libs
+import re
 import requests
 import argparse
 import textwrap
-
 
 
 
@@ -10,9 +10,9 @@ import textwrap
 parser = argparse.ArgumentParser(description="Welcome this is a simple web fuzzer enjoy fuzzing!",
 formatter_class = argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''EXAMPLE:\n
-dirfuzzer.py -u http://example.com/ -w <wordlist> # Simple fuzzin
-dirfuzzer.py -u http://example.com/ -w <wordlist> -x .js, .txt, .php
-dirfuzzer.py -u http://example.com/ -w <wordlist> -o output.txt # Save the fuzzing's output
+dirfuzzer.py -u http://example.com -w <wordlist> # Simple fuzzin
+dirfuzzer.py -u http://example.com -w <wordlist> -x .txt
+dirfuzzer.py -u http://example.com -w <wordlist> -o output.txt # Save the fuzzing's output
 '''))
 
 parser.add_argument('-u','--url',type=str, help='Specified an url.')
@@ -44,27 +44,38 @@ wlist = args.wordlist
 ext= args.extension
 out = args.output
 
-#Analyze the wordlist
-wordlistline = open(wlist, 'r').readlines()
-#for i in range(0,len(wordlistline)):
+
+
+
 try:
-        for line in wordlistline:                                                                       #for loop
-                                                                                                            
-            enumeration= line + (ext or '')                                                             #check for ext file but if ther isn't go on                                                                                                     # 
-            r = requests.get(url+"/"+enumeration)                                                       #send a request                                                                                                        # 
         
-                
-        if  r.status_code != 404:                                                                       #if the request is not 404 it's correct!
-            output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                   #r.status_code record the status of the server which is 404 is no available                    
-                                                                                                        #then if is 200 is availabl, and print the output
-            #outfile = (str(r.status_code)+" | "+ url+'/'+enumeration )                                  
-            #f= open(out,'a')
-            #f.write(outfile+"\n")
-            #f.close() 
-            print(output)
-        
- 
-                                                                     
+        if wlist:  
+            #Analyze the wordlist 
+            wordlistline = open(wlist, 'r').readlines()
+            for line in wordlistline:                                                                       #for loop
+
+                enumeration= line + (ext or '')                                                             #check for ext file but if ther isn't go on                                                                                                     # 
+                r = requests.get(url+"/"+enumeration)                                                       #send a request                                                                                                        # 
+
+
+            if  r.status_code != 404:                                                                       #if the request is not 404 it's correct!
+                output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                   #r.status_code record the status of the server which is 404 is no available                    
+                                                                                                            #then if is 200 is availabl, and print the output
+
+                print(output)
+            if ext:
+                for line in wordlistline:
+                    enum = line + ext
+                    r = requests.get(url+"/"+enumeration)                                                       #send a request                                                                                                        # 
+
+
+                    if  r.status_code != 404:                                                                      
+                        output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                                       
+
+
+                        print(output)
+    
+
 except KeyboardInterrupt:
         print("Script interrupt by user")
 
