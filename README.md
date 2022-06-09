@@ -16,7 +16,6 @@ ONLY YOU NEED TO USE THIS FUZZER IS REQUEST LIBRARY
 
 - pip install -r requirements.txt
 
-
 ------------------------------------------------------------CHEATSHEET-------------------------------------------------------
 
 - u ==> Insert url
