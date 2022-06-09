@@ -23,6 +23,6 @@ ONLY YOU NEED TO USE THIS FUZZER IS REQUEST LIBRARY
 - x == Use extension file
 - o ==> save the output in .txt extension 
 
------------------------------------------------------------ATTENTION----------------------------------------------------------
+-----------------------------------------------------------ATTENTION---------------------------------------------------------
 
 ATTENTION THIS PROGRAM IS WORKING IN PROGRESS, SO STAY CAREFULL ABOUT UPDATES!!
