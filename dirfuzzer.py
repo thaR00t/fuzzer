@@ -1,5 +1,5 @@
 #import libs
-import re
+
 import requests
 import argparse
 import textwrap
