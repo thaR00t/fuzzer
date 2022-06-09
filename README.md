@@ -20,6 +20,7 @@ ONLY YOU NEED TO USE THIS FUZZER IS REQUEST LIBRARY
 
 - u ==> Insert url
 - w ==> Use wordlist
+- -x == Use extension file
 - o ==> save the output in .txt extension 
 
 -----------------------------------------------------------ATTENTION----------------------------------------------------------
