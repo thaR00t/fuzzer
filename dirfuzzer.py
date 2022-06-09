@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(description="Welcome this is a simple web fuzze
 formatter_class = argparse.RawDescriptionHelpFormatter,
 epilog=textwrap.dedent('''EXAMPLE:\n
 dirfuzzer.py -u http://example.com -w <wordlist> # Simple fuzzin
-dirfuzzer.py -u http://example.com -w <wordlist> -x .txt
+dirfuzzer.py -u http://example.com -w <wordlist> -x .txt # Add extension
 dirfuzzer.py -u http://example.com -w <wordlist> -o output.txt # Save the fuzzing's output
 '''))
 
