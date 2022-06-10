@@ -1,4 +1,5 @@
 #import libs
+from rich import print
 import requests
 import argparse
 import textwrap
@@ -20,20 +21,16 @@ parser.add_argument('-o','--output',help='Save the output into a file.')
 args = parser.parse_args()
 
 
-#Wrote by shortcu7 aka thaR00t
 print('''
-
+[italic blue]
 ============================================
-
 SIMPLE WEB DIRECTORY FUZZER, HOPE YOU ENJOY 
 WITH THIS SIMPLE SCRIPT,
 REPORT ANY ISSUES AND ANY ADVICE.
-
 ============================================
-
 Ctrl ^C to interrupt the script
-
  status code:        url:
+[/italic blue]
 ''')
 
 #Creating var
@@ -43,8 +40,6 @@ ext= args.extension
 out = args.output
 
 
-
-
 try:
         
         
@@ -52,21 +47,22 @@ try:
         if wlist:
             wordlistline = open(wlist, 'r').readlines()                                             
             for i in range(0,len(wordlistline)):                                                                #For loop
-                                                                                    
+
+
                 enumeration=wordlistline[i].replace("\n",(ext or ""))                                                                                                                                                            # 
                 r = requests.get(url+"/"+enumeration)                                                           #send a request                                                                                                        # 
-            
+
                 if  r.status_code != 404:                                                                       #if the request is not 404 it's correct!
                     output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                   #r.status_code record the status of the server which is 404 is no available                    
                                                                                                                 #then if is 200 is availabl, and print the output
-                    print(output)
+                    print(f"[bold orange_red1]{output}[/bold orange_red1]")
            
 
 except KeyboardInterrupt:
-        print("Script interrupt by user")
+        print("[italic red]Script interrupt by user[/italic red]")
 
 if out:
-    outfile = (str(r.status_code)+" | "+ url+'/'+enumeration )
+    outfile = (str(r.status_code)+" "+ url+'/'+enumeration )
     with open(out,'a') as f:
         f.write(outfile+"\n")
-        f.close() 
+        f.close()
