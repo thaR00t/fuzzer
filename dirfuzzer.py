@@ -4,7 +4,6 @@ import argparse
 import textwrap
 
 
-
 # Creating an interface
 parser = argparse.ArgumentParser(description="Welcome this is a simple web fuzzer enjoy fuzzing!",
 formatter_class = argparse.RawDescriptionHelpFormatter,
@@ -51,28 +50,26 @@ try:
         if wlist:  
             #Analyze the wordlist 
             wordlistline = open(wlist, 'r').readlines()
-            for line in wordlistline:                                                                       #for loop
+            for i in range(0,len(wordlistline)):                                                                    #for loop
 
-                enumeration= line + (ext or '')                                                             #check for ext file but if ther isn't go on                                                                                                     # 
-                r = requests.get(url+"/"+enumeration)                                                       #send a request                                                                                                        # 
-
-
-            if  r.status_code != 404:                                                                       #if the request is not 404 it's correct!
-                output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                   #r.status_code record the status of the server which is 404 is no available                    
-                                                                                                            #then if is 200 is availabl, and print the output
+                enumeration= wordlistline[i].replace("\n","")                                                                                                                                                            # 
+                r = requests.get(url+"/"+enumeration)                                                               #send a request                                                                                                        # 
+          
+                if  r.status_code != 404:                                                                       #if the request is not 404 it's correct!
+                    output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                   #r.status_code record the status of the server which is 404 is no available                    
+                                                                                                                #then if is 200 is availabl, and print the output
 
                 print(output)
             if ext:
+             #Now if turn the switch -x the script check for possible extension
                 for line in wordlistline:
                     enum = line + ext
-                    r = requests.get(url+"/"+enumeration)                                                       #send a request                                                                                                        # 
-
-
+                    r = requests.get(url+"/"+enum)                                                               #send a request                                                                                                        # 
                     if  r.status_code != 404:                                                                      
                         output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                                       
 
 
-                        print(output)
+                    print(output)
     
 
 except KeyboardInterrupt:
