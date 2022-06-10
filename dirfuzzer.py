@@ -47,18 +47,19 @@ out = args.output
 
 try:
         
-          
-        #Analyze the wordlist 
-        wordlistline = open(wlist, 'r').readlines()                                             
-        for i in range(0,len(wordlistline)):                                                                #For loop
-                                                                                
-            enumeration=wordlistline[i].replace("\n",(ext or ""))                                                                                                                                                            # 
-            r = requests.get(url+"/"+enumeration)                                                           #send a request                                                                                                        # 
         
-            if  r.status_code != 404:                                                                       #if the request is not 404 it's correct!
-                output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                   #r.status_code record the status of the server which is 404 is no available                    
-                                                                                                            #then if is 200 is availabl, and print the output
-                print(output)
+        #Analyze the wordlist 
+        if wlist:
+            wordlistline = open(wlist, 'r').readlines()                                             
+            for i in range(0,len(wordlistline)):                                                                #For loop
+                                                                                    
+                enumeration=wordlistline[i].replace("\n",(ext or ""))                                                                                                                                                            # 
+                r = requests.get(url+"/"+enumeration)                                                           #send a request                                                                                                        # 
+            
+                if  r.status_code != 404:                                                                       #if the request is not 404 it's correct!
+                    output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                   #r.status_code record the status of the server which is 404 is no available                    
+                                                                                                                #then if is 200 is availabl, and print the output
+                    print(output)
            
 
 except KeyboardInterrupt:
@@ -68,4 +69,4 @@ if out:
     outfile = (str(r.status_code)+" | "+ url+'/'+enumeration )
     with open(out,'a') as f:
         f.write(outfile+"\n")
-        f.close()
+        f.close() 
