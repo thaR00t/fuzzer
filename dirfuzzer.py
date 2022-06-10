@@ -60,16 +60,14 @@ try:
                                                                                                                 #then if is 200 is availabl, and print the output
 
                 print(output)
-            if ext:
-             #Now if turn the switch -x the script check for possible extension
-                for line in wordlistline:
-                    enum = line + ext
-                    r = requests.get(url+"/"+enum)                                                               #send a request                                                                                                        # 
-                    if  r.status_code != 404:                                                                      
-                        output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                                       
-
-
-                    print(output)
+        if ext:
+         #Now if turn the switch -x the script check for possible extension
+            for line in wordlistline:
+                enum = line + ext
+                r = requests.get(url+"/"+enum)                                                               #send a request                                                                                                        # 
+                if  r.status_code != 404:                                                                      
+                    output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                                       
+                print(output)
     
 
 except KeyboardInterrupt:
