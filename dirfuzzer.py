@@ -20,18 +20,24 @@ parser.add_argument('-x','--extension',type=str,help='Select an extension for th
 parser.add_argument('-o','--output',help='Save the output into a file.')
 args = parser.parse_args()
 
+print("""
+dirfuzzer.py -u and -w missing check the [-h] or [--help] to display the help command
 
-print('''
+""")
+
+display = """"
 [italic blue]
 ============================================
-SIMPLE WEB DIRECTORY FUZZER, HOPE YOU ENJOY 
-WITH THIS SIMPLE SCRIPT,
+WEB DIRECTORY FUZZER, HOPE YOU ENJOY 
+WITH THIS SCRIPT,
 REPORT ANY ISSUES AND ANY ADVICE.
 ============================================
 Ctrl ^C to interrupt the script
  status code:        url:
+
 [/italic blue]
-''')
+
+"""
 
 #Creating var
 url = args.url
@@ -45,9 +51,9 @@ try:
         
         #Analyze the wordlist 
         if wlist:
+            print(display)
             wordlistline = open(wlist, 'r').readlines()                                             
             for i in range(0,len(wordlistline)):                                                                #For loop
-
 
                 enumeration=wordlistline[i].replace("\n",(ext or ""))                                                                                                                                                            # 
                 r = requests.get(url+"/"+enumeration)                                                           #send a request                                                                                                        # 
