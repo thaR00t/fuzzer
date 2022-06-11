@@ -1,4 +1,4 @@
-WEB DIRECTORY FUZZER
+****WEB DIRECTORY FUZZER****
 
 This is a very simple web directory fuzzer, if you have any issues or advice to give me contact me on shor7.cu7@gmail.com
 
