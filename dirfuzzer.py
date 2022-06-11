@@ -62,13 +62,13 @@ try:
                     output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                   #r.status_code record the status of the server which is 404 is no available                    
                                                                                                                 #then if is 200 is availabl, and print the output
                     print(f"[bold orange_red1]{output}[/bold orange_red1]")
-           
+                    if out:
+                        outfile = (str(r.status_code)+" "+ url+'/'+enumeration)
+                        with open(out,'a') as f:
+                            f.write(outfile+"\n")
+                            f.close()
+            
+        
 
 except KeyboardInterrupt:
-        print("[italic red]Script interrupt by user[/italic red]")
-
-if out:
-    outfile = (str(r.status_code)+" "+ url+'/'+enumeration )
-    with open(out,'a') as f:
-        f.write(outfile+"\n")
-        f.close()
+        print("[italic red][!]Script interrupt by user[/italic red]")
