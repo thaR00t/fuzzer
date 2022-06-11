@@ -58,7 +58,7 @@ try:
                 enumeration=wordlistline[i].replace("\n",(ext or ""))                                                                                                                                                            # 
                 r = requests.get(url+"/"+enumeration)                                                           #send a request                                                                                                        # 
 
-                if  r.status_code != 404 and 400:                                                                       #if the request is not 404 it's correct!
+                if  r.status_code != 404 and 400:                                                               #if the request is not 404 and 400 it's correct!
                     output = ("    "+str(r.status_code)+"              "+url+'/'+enumeration)                   #r.status_code record the status of the server which is 404 is no available                    
                                                                                                                 #then if is 200 is availabl, and print the output
                     print(f"[bold orange_red1]{output}[/bold orange_red1]")
