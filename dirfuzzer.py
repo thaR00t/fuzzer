@@ -38,7 +38,7 @@ dirfuzzer.py -u http://example.com -w <wordlist> -o output.txt # Save the fuzzin
 
 parser.add_argument('-u','--url',type=str, help='Specified an url.')
 parser.add_argument('-w','--wordlist', help='Insert a wordlists.')
-#parser.add_argument('-t','--threads',help='You can choose the threads for the scan')
+parser.add_argument('-t','--threads',help='You can choose the threads for the scan')
 parser.add_argument('-x','--extension',type=str,help='Select an extension for the fuzzin')
 parser.add_argument('-o','--output',help='Save the output into a file.')
 args = parser.parse_args()
@@ -53,23 +53,23 @@ thr = args.threads
 ext= args.extension
 out = args.output
 
+
 try:
         
-        
-         
     if url and wlist:
         print(display())
         wordlistline = open(wlist, 'r').readlines()
-        
-        
-        
-        for i in range(0,len(wordlistline)):                                                                #For loop
+        #for loop to analyze the wordlist
+        for i in range(0,len(wordlistline)):                                                                
             enumeration=wordlistline[i].replace("\n",(ext or ""))
-            time.sleep(0.1)                                                                                                                                                   
-            r = requests.get(url+"/"+enumeration)                                                           #send a request 
-            if  r.status_code != 404:                                                                       #if the request is not 404 it's correct!
-                output = ("    "+str(r.status_code)+"        "+url+'/'+enumeration)                              #r.status_code record the status of the server which is 404 is no available                    
-                                                                                                            #then if is 200 is availabl, and print the output
+            #Make faster the process with time
+            time.sleep(0.1)
+            #Send a request                                                                                                                                                   
+            r = requests.get(url+"/"+enumeration)                                                           
+            #Check the status of the page if is 404 is not available then don't print it                                                                                           
+            if  r.status_code != 404:                                                                       
+                output = ("    "+str(r.status_code)+"        "+url+'/'+enumeration)                                         
+                                                                                                            
                 print(f"[bold orange_red1]{output}[/bold orange_red1]")
                 if out:                
                     outfile = (str(r.status_code)+"   "+url+'/'+enumeration)
@@ -80,5 +80,6 @@ try:
         
     else:      
         print(help())
+
 except KeyboardInterrupt:
         print("[bold red] [!]Script interrupt by user[!][/bold red]")
