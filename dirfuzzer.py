@@ -68,4 +68,4 @@ try:
         
 
 except KeyboardInterrupt:
-        print("[bold red] [!]Script interrupt by userp[!][/bold red]")
+        print("[bold red] [!]Script interrupt by user[!][/bold red]")
