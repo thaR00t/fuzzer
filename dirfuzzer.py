@@ -16,7 +16,7 @@ dirfuzzer.py -u http://example.com -w <wordlist> -o output.txt # Save the fuzzin
 
 parser.add_argument('-u','--url',type=str, help='Specified an url.')
 parser.add_argument('-w','--wordlist', help='Insert a wordlists.')
-parser.add_argument('-x','--extension',type=str,help='Select an extension for the fuzzin')
+parser.add_argument('-x','--extension',type=str,help='Select an extension for the fuzzer')
 parser.add_argument('-o','--output',help='Save the output into a file.')
 args = parser.parse_args()
 
