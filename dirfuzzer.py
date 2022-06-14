@@ -4,28 +4,37 @@ import requests
 import argparse
 import textwrap
 import time
-
+from threading import Thread
 #help
 def help():
-    help=("\ndirfuzzer.py -u and -w missing check the [-h] or [--help] to display the help command")
+    help=("\n[bold]dirfuzzer.py -u and -w missing check the [-h] or [--help] to display the help command[bold]")
     return help
 
 
 #display
 def display():
     banner=( """"
-[italic blue]
-    ============================================
-    WEB DIRECTORY FUZZER, HOPE YOU ENJOY 
-    WITH THIS SCRIPT,
-    REPORT ANY ISSUES AND ANY ADVICE.
-    ============================================
-    Ctrl ^C to interrupt the script
-    status code:      url:
-[/italic blue]
+[bold blue]
+
+            _ _      __                               
+ __| (_)_ _ / _|_  _ _________ _ _  _ __ _  _ 
+/ _` | | '_|  _| || |_ /_ / -_) '_|| '_ \ || |
+\__,_|_|_| |_|  \_,_/__/__\___|_|(_) .__/\_, |
+                                   |_|   |__/     
+       
+[/bold blue]
 """)
     return banner
 
+def status():
+    stat=("""
+    
+    _______________________________
+    \n    Ctrl ^C to interrupt the script
+    _______________________________
+    status code:      url:
+    """)
+    return stat
 
 # Creating an interface
 parser = argparse.ArgumentParser(description="Welcome this is a simple web fuzzer enjoy fuzzing!",
@@ -38,6 +47,7 @@ dirfuzzer.py -u http://example.com -w <wordlist> -o output.txt # Save the fuzzin
 
 parser.add_argument('-u','--url',type=str, help='Specified an url.')
 parser.add_argument('-w','--wordlist', help='Insert a wordlists.')
+parser.add_argument('-t','--threads',help='You can choose the threads for the scan')
 parser.add_argument('-x','--extension',type=str,help='Select an extension for the fuzzin')
 parser.add_argument('-o','--output',help='Save the output into a file.')
 args = parser.parse_args()
@@ -56,27 +66,28 @@ try:
         
     if url and wlist:
         print(display())
+        print(status())
         wordlistline = open(wlist, 'r').readlines()
         #for loop to analyze the wordlist
         for i in range(0,len(wordlistline)):                                                                
             enumeration=wordlistline[i].replace("\n",(ext or ""))
-            #Make faster the process with time
-            time.sleep(0.1)
+            
             #Send a request                                                                                                                                                   
             r = requests.get(url+"/"+enumeration)                                                           
             #Check the status of the page if is 404 is not available then don't print it                                                                                           
             if  r.status_code != 404:                                                                       
-                output = ("    "+str(r.status_code)+"        "+url+'/'+enumeration)                                         
+                output = ("    "+str(r.status_code)+"    |    "+url+'/'+enumeration)                                         
                                                                                                             
                 print(f"[bold orange_red1]{output}[/bold orange_red1]")
+                time.sleep(0.1)
                 if out:                
                     outfile = (str(r.status_code)+"   "+url+'/'+enumeration)
                     with open(out,'a') as f:
                         f.write(outfile+"\n")
                         f.close()
-        
-        
-    else:      
+                
+    else:
+        print(display())      
         print(help())
 
 except KeyboardInterrupt:
