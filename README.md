@@ -4,7 +4,7 @@ This is a very simple web directory fuzzer, if you have any issues or advice to 
 
 ****NOTE****
 
-I USE THE WORDLIST OF DIRBUSTER, WITH A LITTLE CHANGES!
+I USE THE WORDLIST OF DIRBUSTER, WITH A LITTLE CHANGES, BUT YOU CAN USE THE WORDLIST THAT YOU WANT!
 
 I WAS INSPIRE WATCHING THIS VERY COOL VIDEO! https://www.youtube.com/watch?v=WzpkStLk8vw AND THIS IS THE REPOSITOY OF TheDarkHorseUprising https://github.com/TheDarkHorseUprising/dirnum
 
@@ -12,7 +12,7 @@ I WAS INSPIRE WATCHING THIS VERY COOL VIDEO! https://www.youtube.com/watch?v=Wzp
 
 ****INSTALLATION****
 
-ONLY YOU NEED TO USE THIS FUZZER IS REQUEST LIBRARY 
+ONLY YOU NEED TO USE THIS FUZZER IS REQUEST LIBRARY AND RICH:
 
 - pip install -r requirements.txt
 
