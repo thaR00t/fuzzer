@@ -4,7 +4,7 @@ import requests
 import argparse
 import textwrap
 import time
-from threading import Thread
+
 #help
 def help():
     help=("\ndirfuzzer.py -u and -w missing check the [-h] or [--help] to display the help command")
@@ -38,7 +38,6 @@ dirfuzzer.py -u http://example.com -w <wordlist> -o output.txt # Save the fuzzin
 
 parser.add_argument('-u','--url',type=str, help='Specified an url.')
 parser.add_argument('-w','--wordlist', help='Insert a wordlists.')
-parser.add_argument('-t','--threads',help='You can choose the threads for the scan')
 parser.add_argument('-x','--extension',type=str,help='Select an extension for the fuzzin')
 parser.add_argument('-o','--output',help='Save the output into a file.')
 args = parser.parse_args()
