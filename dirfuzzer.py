@@ -22,7 +22,7 @@ def display():
     ============================================
     Ctrl ^C to interrupt the script
     status code:      url:
-    [/italic blue]
+[/italic blue]
 """)
     return banner
 
