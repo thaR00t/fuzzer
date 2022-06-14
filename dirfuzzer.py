@@ -4,7 +4,7 @@ import requests
 import argparse
 import textwrap
 import time
-from threading import Thread
+
 #help
 def help():
     help=("\n[bold]dirfuzzer.py -u and -w missing check the [-h] or [--help] to display the help command[bold]")
@@ -15,24 +15,19 @@ def help():
 def display():
     banner=( """"
 [bold blue]
-
             _ _      __                               
  __| (_)_ _ / _|_  _ _________ _ _  _ __ _  _ 
 / _` | | '_|  _| || |_ /_ / -_) '_|| '_ \ || |
 \__,_|_|_| |_|  \_,_/__/__\___|_|(_) .__/\_, |
-                                   |_|   |__/     
-       
-[/bold blue]
-""")
+                                   |_|   |__/ [/bold blue]""")        
     return banner
 
 def status():
-    stat=("""
-    
+    stat=(""" 
     _______________________________
-    \n    Ctrl ^C to interrupt the script
+    \n   [!]Ctrl ^C to interrupt the script
     _______________________________
-    status code:      url:
+        status          url
     """)
     return stat
 
@@ -47,7 +42,6 @@ dirfuzzer.py -u http://example.com -w <wordlist> -o output.txt # Save the fuzzin
 
 parser.add_argument('-u','--url',type=str, help='Specified an url.')
 parser.add_argument('-w','--wordlist', help='Insert a wordlists.')
-parser.add_argument('-t','--threads',help='You can choose the threads for the scan')
 parser.add_argument('-x','--extension',type=str,help='Select an extension for the fuzzin')
 parser.add_argument('-o','--output',help='Save the output into a file.')
 args = parser.parse_args()
@@ -76,7 +70,7 @@ try:
             r = requests.get(url+"/"+enumeration)                                                           
             #Check the status of the page if is 404 is not available then don't print it                                                                                           
             if  r.status_code != 404:                                                                       
-                output = ("    "+str(r.status_code)+"    |    "+url+'/'+enumeration)                                         
+                output = ("         ("+str(r.status_code)+")        "+url+"/"+enumeration)                                         
                                                                                                             
                 print(f"[bold orange_red1]{output}[/bold orange_red1]")
                 time.sleep(0.1)
