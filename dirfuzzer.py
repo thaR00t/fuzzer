@@ -48,7 +48,6 @@ args = parser.parse_args()
 
 url = args.url
 wlist = args.wordlist
-thr = args.threads
 ext= args.extension
 out = args.output
 
