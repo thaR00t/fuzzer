@@ -18,11 +18,11 @@ ONLY YOU NEED TO USE THIS FUZZER IS REQUEST LIBRARY AND RICH:
 
 ****CHEATSHEET****
 
-- u ==> Insert url
-- w ==> Use wordlist
-- x ==> Use extension file                          //extension are not performing but you can try it, attention if you use a wordlist with extension don't use -x
-- o ==> save the output in .txt extension 
-- b ==> Show the script's banner
+- -u ==> Insert url
+- -w ==> Use wordlist
+- -x ==> Use extension file                          //extension are not performing but you can try it, attention if you use a wordlist with extension don't use -x
+- -o ==> save the output in .txt extension 
+- -b ==> Show the script's banner
 ****ATTENTION****
 
 ATTENTION THIS PROGRAM IS WORKING IN PROGRESS, SO STAY CAREFULL ABOUT UPDATES!!
