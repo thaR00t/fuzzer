@@ -1,6 +1,7 @@
 #help
 def help():
     import os
+    from rich import print
     print("\n[bold]dirfuzzer.py -u and -w missing check the [-h] or [--help] to display the help command[bold]")
     os.system("python dirfuzzer.py -h")
     return ''
@@ -22,6 +23,6 @@ def status():
     _______________________________
     \n   [!]Ctrl ^C to interrupt the script
     _______________________________
-        status          url
+    dir        status          url
     """)
     return stat
