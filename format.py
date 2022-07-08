@@ -1,7 +1,9 @@
 #help
 def help():
-    help=("\n[bold]dirfuzzer.py -u and -w missing check the [-h] or [--help] to display the help command[bold]")
-    return help
+    import os
+    print("\n[bold]dirfuzzer.py -u and -w missing check the [-h] or [--help] to display the help command[bold]")
+    os.system("python dirfuzzer.py -h")
+    return ''
 
 
 #display
